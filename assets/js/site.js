@@ -43,6 +43,10 @@
     return String(n).padStart(2, '0');
   }
 
+  function fileNo(n) {
+    return String(n).padStart(3, '0');
+  }
+
   function displayDate(value) {
     if (!value) return '—';
     var date = new Date(String(value) + 'T00:00:00');
@@ -65,7 +69,9 @@
   }
 
   function memberCard(m, i) {
-    var n = pad(i + 1);
+    var n = fileNo(i + 1);
+    var file = 'AGX-' + n;
+    var tone = ' record--c' + ((i % 3) + 1);
     var url = safeUrl(m.url);
     var name = esc(m.name || m.slug || 'Untitled');
     var practice = esc(m.practice || 'Unclassified');
@@ -73,15 +79,19 @@
     var year = esc(m.year || '');
     var d = esc(domain(url));
     var line = campus + (campus && year ? ' / ' : '') + year;
+    var barcode = window.AGXCode39
+      ? window.AGXCode39.render(file, { className: 'record__barcode', height: 44 })
+      : '';
 
-    return '<a class="record record--member" href="' + esc(url) + '" target="_blank" rel="noopener">' +
+    return '<a class="record record--member' + tone + '" href="' + esc(url) + '" target="_blank" rel="noopener">' +
       '<span class="record__tab">File <b>' + n + '</b></span>' +
       '<span class="record__top"><span>No. ' + n + '</span><span class="record__mark">Listed</span></span>' +
       '<span class="record__status">' + name + '</span>' +
       '<span class="record__sub">' + practice + (line ? '<br>' + line : '') + '</span>' +
       '<span class="record__rule"></span>' +
       '<span class="record__foot"><span>' + d + '</span><span>Open &rarr;</span></span>' +
-      '<span class="record__barcode" aria-hidden="true"></span>' +
+      barcode +
+      '<span class="record__code"><span>' + file + '</span><span>Code 39</span></span>' +
       '</a>';
   }
 
@@ -92,10 +102,15 @@
 
     if (grid) {
       grid.innerHTML = list.map(memberCard).join('');
+      grid.dataset.count = String(list.length);
       grid.hidden = list.length === 0;
     }
     if (empty) {
       empty.hidden = list.length !== 0;
+    }
+    var emptyBar = document.querySelector('.register-empty__barcode');
+    if (emptyBar && window.AGXCode39) {
+      window.AGXCode39.mount(emptyBar, 'AGX-000', { height: 44 });
     }
     updateCounts(list);
   }
