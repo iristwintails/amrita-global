@@ -14,14 +14,11 @@
    }
 */
 window.AGX = {
-  updated: "2026-10-25",
-  hub: "https://iristwintails.github.io/amrita-global/",
+  updated: "2026-10-30",
+  hub: "https://amrita-global.github.io/",
   members: [
     { slug: "aneesh", name: "Aneesh Sagar Reddy", url: "https://chimera-realm.vercel.app", practice: "AI engineering", campus: "Bengaluru", year: "2028" },
     { slug: "revanth", name: "A Revanth Sri Sai", url: "https://revanth.is-a.dev", practice: "Software", campus: "Amaravati", year: "2027" },
-    { slug: "placeholder-01", name: "Place Holder 01", url: "https://example.com", practice: "Placeholder entry", campus: "", year: "" },
-    { slug: "placeholder-02", name: "Place Holder 02", url: "https://example.com", practice: "Placeholder entry", campus: "", year: "" },
-    { slug: "placeholder-03", name: "Place Holder 03", url: "https://example.com", practice: "Placeholder entry", campus: "", year: "" },
-    { slug: "placeholder-04", name: "Place Holder 04", url: "https://example.com", practice: "Placeholder entry", campus: "", year: "" }
+    { slug: "satwik", name: "Sivakoti Satwik", url: "https://satwksivakoti.vercel.app/", practice: "Generative AI", campus: "Bengaluru", year: "2027" }
   ]
 };

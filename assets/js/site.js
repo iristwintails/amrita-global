@@ -4,7 +4,7 @@
   'use strict';
 
   var AGX = window.AGX || { members: [] };
-  var HUB = AGX.hub || 'https://iristwintails.github.io/amrita-global/';
+  var HUB = AGX.hub || 'https://amrita-global.github.io/';
 
   function esc(value) {
     return String(value == null ? '' : value)

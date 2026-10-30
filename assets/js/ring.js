@@ -1,6 +1,6 @@
 /* Amrita Global Exchange — ring widget.
    Embed: <div class="agx-ring" data-member="your-slug"></div>
-   Then:  <script src="https://iristwintails.github.io/amrita-global/assets/js/ring.js" defer></script>
+   Then:  <script src="https://amrita-global.github.io/assets/js/ring.js" defer></script>
    No cookies. No tracking. Data loads from the public register. */
 (function () {
   'use strict';
@@ -8,9 +8,9 @@
   var script = document.currentScript || document.querySelector('script[src*="/ring.js"]');
   var base;
   try {
-    base = script && script.src ? new URL('../../', script.src) : new URL('https://iristwintails.github.io/amrita-global/');
+    base = script && script.src ? new URL('../../', script.src) : new URL('https://amrita-global.github.io/');
   } catch (err) {
-    base = new URL('https://iristwintails.github.io/amrita-global/');
+    base = new URL('https://amrita-global.github.io/');
   }
 
   var CSS = [
